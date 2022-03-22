@@ -1,5 +1,5 @@
 bread x 2
-milk x 3
+milk x 2
 eggs x 5
 sugar x 1
 apples x 5
