@@ -1,0 +1,96 @@
+Прво го клонирам remote репозиториумот со командатa:
+
+	git clone https://github.com/JovanKalajdziev/SI_2022_lab1_206013.git
+
+
+После креирањето на shopping_list.txt го ставам на stage и правам commit: 
+	
+        git add shopping_list.txt
+
+	git commit -m "Add 5 items to the shopping list"
+
+
+После направената промена во фајлот новиот commit го правам директно со git commit -am бидејќи shopping_list.txt е веќе следен од git и нема потреба од add:
+
+	git commit -am "Add quantities to the items"
+
+
+Потоа ги креирам гранките banch1 и branch2:
+	
+	git branch branch1
+
+	git branch branch2
+
+
+Ги синхронизирам remote гранките:
+
+	git push --all
+
+
+Се префрлам на гранката branch1, правам промена на shopping_list.txt и правам commit:
+
+	git checkout branch1
+
+	git commit -am "Change quantity of item #5"
+
+
+Се префрлам на master, правам промена на shopping_list.txt и правам commit:
+
+	git checkout master
+
+	git commit -am "Change quantity of item #2"
+
+
+Ги синхронизирам remote гранките:
+
+	git push --all
+
+
+Се префрлам на branch2, ги правам промените и правам commit:
+
+	git checkout branch2
+
+	git commit -am "Modify item #4"
+
+
+Правам уште една промена која ќе биде во истиот commit со претходната и ја менувам пораката на претходниот commit:
+
+	git commit --ammend -am "Modify item #4 and add item #6"
+
+
+Се префрлам на master и ги спојувам останатите гранки со master:
+
+	git checkout master 
+
+	git merge branch1
+
+	git merge branch2
+
+
+Првиот merge е без кофнликти, со ort стратегија и со следната порака:
+
+	Auto-merging shopping_list.txt
+	Merge made by the 'ort' strategy.
+ 	 shopping_list.txt | 2 +-
+ 	 1 file changed, 1 insertion(+), 1 deletion(-)
+
+
+За спојувањето со branch2 имаше конфликти и се појави следната порака:
+	
+	Auto-merging shopping_list.txt
+	CONFLICT (content): Merge conflict in shopping_list.txt
+	Automatic merge failed; fix conflicts and then commit the result.
+
+
+Конфликтите ги разрешив на тој начин што ги прифатив само разликите кои веќе беа на master и на крај направив commit: 
+
+	git commit -am "Fix merge conflict with branch2"
+
+
+На крај ќе го ставам на stage фајлот со документација, ќе го направам последниот commit и ќе ги синхронизирам remote гранките:
+
+	git add 206013.txt
+
+	git commit -m "Add docs"
+
+        git push --all
