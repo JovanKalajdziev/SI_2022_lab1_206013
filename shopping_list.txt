@@ -1,5 +1,5 @@
-bread
-milk
-eggs
-sugar
-apples
+bread x 2
+milk x 3
+eggs x 5
+sugar x 1
+apples x 5
